@@ -8,6 +8,7 @@ import { FormBuilder, Validators, NgForm, FormGroup, FormControl } from '@angula
 })
 export class AppComponent {
   title = 'EmpVerify';
+  name = 'yogesh';
 
     // To initialize FormGroup  
     regiForm = new FormGroup({  
