@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { SignUpServiceService } from '../sign-up-service.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,7 +9,7 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:SignUpServiceService) { }
 
   ngOnInit(): void {
   }
@@ -28,10 +29,18 @@ export class SignUpComponent implements OnInit {
     'IsAccepted':new FormControl(null,Validators.required)  
 } ) 
 
-
+message:any
 // Executed When Form Is Submitted  
 onFormSubmit(form:NgForm)  
 {  
   console.log(form);  
+
+  this.service.signUpEmployeeService(form).subscribe(
+    data => this.message=data,
+    error => this.message=error
+  )
+
+  console.log(this.message)
 }  
+
 }
