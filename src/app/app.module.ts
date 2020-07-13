@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeHomePageComponent } from './employee/employee-home-page/employee-home-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     EmployeeDocumentsComponent,
     Pipe1Pipe,
     Pipe2Pipe,
-    EmployeeHomePageComponent
+    EmployeeHomePageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
