@@ -19,6 +19,7 @@ import { EmployeeFamilyComponent } from './employee/employee-family/employee-fam
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmployeeHomePageComponent } from './employee/employee-home-page/employee-home-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EmployeeEmploymentComponent,
     EmployeeDocumentsComponent,
     Pipe1Pipe,
-    Pipe2Pipe
+    Pipe2Pipe,
+    EmployeeHomePageComponent
   ],
   imports: [
     BrowserModule,
