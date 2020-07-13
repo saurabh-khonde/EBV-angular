@@ -1,1 +1,137 @@
 <p>sign-up works!</p>
+
+<h2 style="text-align: center;"><u>Demo Form !!!</u></h2>
+<hr>
+
+<!-- Main Toolbar of an App -->    
+<mat-toolbar color="accent">  
+  <span>Manav Pandya - C#Corner</span>  
+  <span class="demo-toolbar"></span>  
+  <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in">Go To My Blog</button>  
+
+</mat-toolbar>  
+
+<!-- Card container that binds all togather -->  
+<mat-card>  
+  <!-- Title of an Card -->  
+  <mat-card-title>  
+      Registration Form 
+  </mat-card-title>  
+
+  <!-- Actual content starts from here -->  
+  <mat-card-content>  
+      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
+          <table>  
+              <tr>  
+                  <td>  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="FirstName" matInput placeholder="First Name">  
+                      </mat-form-field>  
+                      <mat-error>  
+                          <span *ngIf="!regiForm.get('FirstName').valid && regiForm.get('FirstName').touched"><small>Please enter First Name !!!</small></span>  
+                      </mat-error>  
+                  </td>  
+                  <td>  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="LastName" matInput placeholder="Last Name">  
+                      </mat-form-field>  
+                      <mat-error>  
+                          <span *ngIf="!regiForm.get('LastName').valid && regiForm.get('LastName').touched"><small>Please enter Last Name !!!</small></span>  
+                      </mat-error>  
+                  </td>  
+              </tr>  
+              <tr>  
+                  <td colspan="2">  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="DOB" matInput [matDatepicker]="picker" placeholder="Date of birth">  
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
+                          <mat-datepicker touchUi="true" #picker></mat-datepicker>  
+                      </mat-form-field>  
+                      <mat-error>  
+                          <span *ngIf="!regiForm.get('DOB').valid && regiForm.get('DOB').touched"><small>Please select any Date !!!</small></span>  
+                      </mat-error>  
+                  </td>  
+              </tr>  <br>
+              <tr>  
+                  <td colspan="2">  
+                      <span>Gender</span>&nbsp; &nbsp; 
+                      <mat-radio-group formControlName="Gender">  
+                          <mat-radio-button value="Male">Male</mat-radio-button>&nbsp;   
+                          <mat-radio-button value="Female">Female</mat-radio-button>  
+                      </mat-radio-group>  
+                      <mat-error>  
+                          <span *ngIf="!regiForm.get('Gender').valid && regiForm.get('Gender').touched">Please select any gender !!!</span>  
+                      </mat-error>  
+                  </td>  
+              </tr><br>
+
+              <tr>  
+                <td colspan="2">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="Mobile" matInput placeholder="Mobile Number">  
+                        <mat-hint>use like : 987-898-7656</mat-hint>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('Mobile').valid && regiForm.get('Mobile').touched">Enter 10 digit Mobile number !!!</span>  
+                        </mat-error>  
+                    </mat-form-field>  
+                </td>  
+            </tr> <br>
+
+              <tr>  
+                  <td colspan="2">  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="Email" matInput placeholder="Email">  
+                          <mat-hint>use like : demo@demo.com</mat-hint>  
+                          <mat-error>  
+                              <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>  
+                          </mat-error>  
+                      </mat-form-field>  
+                  </td>  
+              </tr> <br>
+
+            <tr>  
+                <td>  
+                    <mat-form-field class="demo-full-width">  
+                        <input type="password" formControlName="CreatePassword" matInput placeholder="Create Password" [(ngModel)]="password">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('CreatePassword').valid && regiForm.get('CreatePassword').touched"><small>Min 8 alphanumeric char !</small></span>  
+                    </mat-error>  
+                </td>  
+                <td>  
+                    <mat-form-field class="demo-full-width">  
+                        <input type="password" formControlName="CreatePassword" matInput placeholder="Confirm Password" [(ngModel)]="cpassword">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('CreatePassword').valid && regiForm.get('CreatePassword').touched; else elseBlock"><small>Min 8 alphanumeric char !</small></span>  
+                    </mat-error>  
+                </td>  
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <mat-error> 
+                        <ng-template #elseBlock>
+                        <span *ngIf="password!=cpassword"><small>create & confirm password must be same.</small></span> 
+                        </ng-template>  
+                    </mat-error>
+                </td>
+            </tr><br>
+
+              <tr>  
+                  <td colspan="2">  
+                      <mat-slide-toggle formControlName="IsAccepted" required>Accept Terms & Conditions</mat-slide-toggle>  
+                  </td>  
+              </tr><br>
+
+              <tr>  
+                <td colspan="2" class="content-center">  
+                    <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Submit</button>  
+                </td>  
+              </tr>  
+ 
+          </table>  
+      </form>  
+
+
+  </mat-card-content>  
+</mat-card>  
