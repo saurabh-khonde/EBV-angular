@@ -1,0 +1,40 @@
+<h2 style="text-align: center;"><u>Home Page !!!</u></h2>
+<hr>
+
+<!-- Main Toolbar of an App -->    
+<mat-toolbar color="accent">  
+  <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>&nbsp;
+  <span><i><u>Employee Back-Ground Verification</u></i></span>  
+  <span class="demo-toolbar"></span>  
+
+  <span class="material-icons">login</span>
+    <button mat-button [matMenuTriggerFor]="menu1">Login</button>
+        <mat-menu #menu1="matMenu">
+            <button mat-menu-item>Admin</button>
+            <button mat-menu-item>Employee</button>
+            <button mat-menu-item>Organization</button>
+        </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="menu2">Sign Up</button>
+        <mat-menu #menu2="matMenu">
+            <button mat-menu-item>Employee</button>
+            <button mat-menu-item>Organization</button>
+        </mat-menu>   
+
+  <!-- <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in">Go To My Blog</button>   -->
+</mat-toolbar>  
+
+<!-- Card container that binds all togather -->  
+<mat-card>  
+  <!-- Title of an Card -->  
+  <mat-card-title>  
+      Angular Material Component With Angular 9  
+  </mat-card-title>  
+
+  <!-- Actual content starts from here -->  
+  <mat-card-content>  
+ 
+  </mat-card-content>  
+</mat-card>  
+
+
