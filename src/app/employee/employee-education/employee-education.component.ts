@@ -11,7 +11,6 @@ import { EmpEducationServiceService } from './emp-education-service.service';
 })
 export class EmployeeEducationComponent implements OnInit {
   ngOnInit(): void {
-    throw new Error("Method not implemented.");
   }
 
   constructor(private service:EmpEducationServiceService) { }
