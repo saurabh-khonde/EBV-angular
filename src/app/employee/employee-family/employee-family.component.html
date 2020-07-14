@@ -1,1 +1,134 @@
 <p>employee-family works!</p>
+<h2 style="text-align: center;"><u>Family Details !!!</u></h2>
+<hr>
+
+<!-- Main Toolbar of an App -->    
+<mat-toolbar color="accent">  
+  <!--<span>Manav Pandya - C#Corner</span> --> 
+  <span class="demo-toolbar"></span>  
+  <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in"></button>  
+
+</mat-toolbar>  
+
+<!-- Card container that binds all togather -->  
+<mat-card>  
+  <!-- Title of an Card -->  
+  <mat-card-title>  
+        Family Details
+  </mat-card-title>  
+
+  <!-- Actual content starts from here -->  
+  <mat-card-content>  
+      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
+          <table>  
+             
+              <tr>
+        
+                  <td>  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="FirstName" matInput placeholder="First Name">  
+                      </mat-form-field>  
+                      <mat-error>  
+                          <span *ngIf="!regiForm.get('FirstName').valid && regiForm.get('FirstName').touched">Please enter First Name !!!</span>  
+                      </mat-error>  
+                  </td>  
+                  <td>  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="LastName" matInput placeholder="Last Name">  
+                      </mat-form-field>  
+                      <mat-error>  
+                          <span *ngIf="!regiForm.get('LastName').valid && regiForm.get('LastName').touched">Please enter Last Name !!!</span>  
+                      </mat-error>  
+                  </td>  
+              </tr>  
+              <tr>
+                  <td colspan="2">
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="DateOfBirth" matInput [matDatepicker]="picker" placeholder="DateOfBirth">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker touchui="true" #picker></mat-datepicker>
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('DateOfBirth').valid && regiForm.get('DateOfBirth').touched"><small>Please select any date !!!</small>></span>  
+                    </mat-error>  
+                  </td>
+              </tr>
+              <tr>
+                <td><br>  
+                    <mat-form-field>  
+                        <mat-select formControlName="Occupation" placeholder="Select Occupation">  
+                            <mat-option>-- Select Any --</mat-option>  
+                            <mat-option value="Farmer">Farmer</mat-option>  
+                            <mat-option value="Bussinesmen">Bussinesmen</mat-option>  
+                            <mat-option value="Engineer">Engineer</mat-option> 
+                            <mat-option value="Doctor">Doctor</mat-option>  
+                            <mat-option value="Other">Other</mat-option>  
+                        </mat-select>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('Relation').valid && regiForm.get('Relation').touched">Please select any item !!!</span>  
+                        </mat-error>  
+                    </mat-form-field>  
+                </td>  
+    
+            <td><br>  
+                <mat-form-field>  
+                    <mat-select formControlName="Relation" placeholder="Select Relation">  
+                        <mat-option>-- Select Any --</mat-option>  
+                        <mat-option value="Father">Father</mat-option>  
+                        <mat-option value="Mother">Mother</mat-option>  
+                        <mat-option value="Sister">Sister</mat-option> 
+                        <mat-option value="Brother">Brother</mat-option>  
+                        <mat-option value="Other">Other</mat-option> 
+                    </mat-select>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('Relation').valid && regiForm.get('Relation').touched">Please select any item !!!</span>  
+                    </mat-error>  
+                </mat-form-field>  
+            </td>  
+        </tr>  
+              
+              
+            
+                <tr>  
+                  <td colspan="2">  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="Email" matInput placeholder="Email">  
+                          <mat-hint>use like : demo@demo.com</mat-hint>  
+                          <mat-error>  
+                              <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>  
+                          </mat-error>  
+                      </mat-form-field>  
+                  </td>  
+              </tr>  
+
+              <tr>  
+                <td colspan="2">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="MobileNumber" matInput placeholder="MobileNumber">  
+                        <mat-hint>use like : 9837773482</mat-hint>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('MobileNumber').valid && regiForm.get('MobileNumber').touched">Enter proper MobileNumber !!!</span>  
+                        </mat-error>  
+                    </mat-form-field>  
+                </td>  
+            </tr>  
+           
+            <tr>
+              <tr>  
+                  <!-- <td colspan="2">  
+                      <mat-slide-toggle formControlName="IsAccepted" (change)="onChange($event)">Accept Terms & Conditions</mat-slide-toggle>  
+                  </td>   -->
+              </tr>  
+              <tr>  
+                  <td colspan="2" class="content-center">  
+                      <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Submit</button>  
+                  </td>  
+              </tr>  
+              <tr>  
+                  <td></td>  
+              </tr>  
+          </table>  
+      </form>  
+  </mat-card-content>  
+</mat-card>  
+
