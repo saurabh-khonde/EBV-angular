@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeHomePageComponent } from './employee/employee-home-page/employee-home-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
+import { HomeComponent } from './home/home/home.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
     Pipe1Pipe,
     Pipe2Pipe,
     EmployeeHomePageComponent,
+    HomeComponent,
     ErrorPageComponent
   ],
   imports: [
