@@ -4,7 +4,7 @@ import { SignUpServiceService } from '../sign-up-service.service';
 
 @Component({
   selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
+  templateUrl: './sign-up.component.html', 
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
@@ -17,7 +17,7 @@ export class SignUpComponent implements OnInit {
   password:string ; cpassword:string;
   IsAccepted:number=0;  
 
-   // To initialize FormGroup   
+   // To initialize FormGroup    
    regiForm = new FormGroup({  
     'FirstName' : new FormControl(null, Validators.required),  
     'LastName' : new FormControl(null, Validators.required), 
