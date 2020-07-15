@@ -1,9 +1,19 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class EmpEducationServiceService {
+  
+  url = "localhost:8090/api/educationEmp";
+  
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
+  public EmpEducationService(form):Observable<any>
+  {
+    return this.http.post<any>(this.url,form)
+  }
+
+  
 }
