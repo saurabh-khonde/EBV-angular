@@ -10,48 +10,35 @@ import { EmpEmploymentServiceService } from './emp-employment-service.service';
 })
 export class EmployeeEmploymentComponent implements OnInit {
 
-  employeeDetails : FormGroup;
-
   
 
-  constructor(private empService : EmpEmploymentServiceService)
-  {
-    this.employeeDetails = new FormGroup({  
-      'CompanyID' : new FormControl(null, Validators.required),  
-      'CompanyName' : new FormControl(null, Validators.required), 
-      'CompanyAddress' : new FormControl(null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])),  
-      'IndustryType' : new FormControl(null, Validators.required), 
-      'Designation':new FormControl(null, Validators.required),
-      'EmploymentType':new FormControl(null, Validators.required),
-      'WorkFrom':new FormControl(null, Validators.required), 
-      'WorkTill':new FormControl(null, Validators.required),
-      'Salary':new FormControl(null, Validators.required), 
-      'SupervisiorName':new FormControl(null, Validators.required),   
-      'SupervisiorContactNumber':new FormControl(null, Validators.required), 
-      'SupervisiorEmail':new FormControl(null, Validators.compose([Validators.required,Validators.email])),  
-      'ReasonForLeaving':new FormControl(null, Validators.required), 
-      'EligibleForRehire':new FormControl(null, Validators.required), 
-      'AgencyName':new FormControl(null, Validators.required), 
-
-  })
+  
+   // To initialize FormGroup  
+    regiForm = new FormGroup({  
+      'FirstName' : new FormControl(null, Validators.required),  
+      'LastName' : new FormControl(null, Validators.required), 
+      'Address' : new FormControl(null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])),  
+      'DOB' : new FormControl(null, Validators.required), 
+      'Gender':new FormControl(null, Validators.required),
+      'Blog':new FormControl(null, Validators.required), 
+      'Email':new FormControl(null, Validators.compose([Validators.required,Validators.email])),  
+      'IsAccepted':new FormControl(null)  
+  } ) 
+  
+  // On Change event of Toggle Button  
+  
+  // Executed When Form Is Submitted  
+  onFormSubmit(form:NgForm)  
+  {  
+    console.log(form);  
+  }  
+  
   }
 
   ngOnInit() {
     
   }
-  response;
-  onSubmit(data : any)
-  {
-      console.log(data);
-
-      this.empService.saveEmployeeDetails(data).subscribe(
-          res =>{this.response = res ;
-              console.log(this.response);
-          },
-          err =>{this.response = err}
-      )
-      
-  } 
+  
 
 } 
  

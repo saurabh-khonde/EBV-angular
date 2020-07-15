@@ -1,1 +1,104 @@
 <p>employee-reference works!</p>
+<h2>{{text}}</h2>
+
+<h2 style="text-align: center;"><u>References</u></h2>
+<hr>
+
+<!-- Main Toolbar of an App -->    
+<mat-toolbar color="accent">  
+  <span>Employee References</span>  
+  <span class="demo-toolbar"></span>  
+  <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in">Go To My Blog</button>  
+
+</mat-toolbar>  
+
+<!-- Card container that binds all togather -->  
+<mat-card>  
+  <!-- Title of an Card -->  
+  <mat-card-title>  
+      Employee References
+  </mat-card-title>  <br>
+
+  <!-- Actual content starts from here -->  
+  <mat-card-content>  
+      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
+          <table>  
+              <tr>  
+                  <td>  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="FirstName" matInput placeholder="First Name">  
+                      </mat-form-field>  
+                      <mat-error>  
+                          <span *ngIf="!regiForm.get('FirstName').valid && regiForm.get('FirstName').touched">Please enter First Name !!!</span>  
+                      </mat-error>  
+                  </td>  
+                  <td>  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="LastName" matInput placeholder="Last Name">  
+                      </mat-form-field>  
+                      <mat-error>  
+                          <span *ngIf="!regiForm.get('LastName').valid && regiForm.get('LastName').touched">Please enter Last Name !!!</span>  
+                      </mat-error>  
+                  </td>  
+              </tr>  
+              <tr>  
+                <td colspan="2">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="Designation" matInput placeholder="Designation" > 
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('Designation').valid && regiForm.get('Designation').touched">Please enter proper designation !!!</span>  
+                    </mat-error>  
+                </td>  
+              </tr> <br>
+              <tr>  
+                <td colspan="2">
+                    <mat-form-field>  
+                        <mat-select formControlName="Relation" placeholder="Relation type">  
+                            <mat-option>-- Relations --</mat-option>  
+                            <mat-option value="Collegue">Collegue</mat-option>  
+                            <mat-option value="Collegue">Friend</mat-option>  
+                            <mat-option value="Senior">Senior</mat-option>  
+                            <mat-option value="Junior">Junior</mat-option>  
+                        </mat-select>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('Relation').valid && regiForm.get('Relation').touched">Please select any item !!!</span>  
+                        </mat-error>  
+                    </mat-form-field>  
+                </td> 
+              </tr>  
+              <tr>  
+                <td colspan="2"> 
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="Mobile" matInput placeholder="Mobile Number">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('Mobile').valid && regiForm.get('Mobile').touched">Please enter 10 Mobile Number !!!</span>  
+                    </mat-error>  
+                </td> 
+                   
+              </tr>  
+              <tr>  
+                  <td colspan="2">  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="Email" matInput placeholder="Email">  
+                          <mat-hint>use like : abc@gmail.com</mat-hint>  
+                          <mat-error>  
+                              <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>  
+                          </mat-error>  
+                      </mat-form-field>  
+                  </td>  
+              </tr> 
+              <tr>  
+                  <td colspan="2" class="content-center">  
+                      <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Submit</button>  
+                  </td>  
+              </tr>  
+              <tr>  
+                  <td></td>  
+              </tr>  
+          </table>  
+      </form>  
+  </mat-card-content>  
+</mat-card>  
+
