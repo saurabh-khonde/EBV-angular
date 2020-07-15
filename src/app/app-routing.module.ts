@@ -4,7 +4,9 @@ import { HomeComponent } from './home/home/home.component';
 import { SignUpComponent } from './home/signUp/sign-up/sign-up.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
