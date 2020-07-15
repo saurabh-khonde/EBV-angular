@@ -38,19 +38,7 @@ export class EmployeeEmploymentComponent implements OnInit {
   ngOnInit() {
     
   }
-  response;
-  onSubmit(data : any)
-  {
-      console.log(data);
-
-      this.empService.saveEmployeeDetails(data).subscribe(
-          res =>{this.response = res ;
-              console.log(this.response);
-          },
-          err =>{this.response = err}
-      )
-      
-  } 
+  
 
 } 
  
