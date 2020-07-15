@@ -1,1 +1,199 @@
 <p>employee-employment works!</p>
+
+<h2 style="text-align: center;"><u>Demo Form !!!</u></h2>
+<hr>
+ 
+<mat-toolbar color="accent">  
+  <span>Manav Pandya - C#Corner</span>  
+  <span class="demo-toolbar"></span>  
+  <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in">Go To My Blog</button>  
+
+</mat-toolbar>  
+
+<!-- Card container that binds all togather -->  
+<mat-card>  
+  <!-- Title of an Card -->  
+  <mat-card-title>  
+      Angular Material Component With Angular 5  
+  </mat-card-title>  
+
+  <!-- Actual content starts from here -->  
+  <mat-card-content>  
+      <form [formGroup]="employeeDetails" >
+          <table>  
+              <tr>  
+                  <td>  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="CompanyID" matInput placeholder="CompanyID">  
+                      </mat-form-field>  
+                      <mat-error>  
+                          <span *ngIf="!employeeDetails.get('CompanyID').valid && employeeDetails.get('CompanyID').touched">Please enter Company Id !!!</span>  
+                      </mat-error>  
+                  </td>  
+                  <td>  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="CompanyName" matInput placeholder="CompanyName">  
+                      </mat-form-field>  
+                      <mat-error>  
+                          <span *ngIf="!employeeDetails.get('CompanyName').valid && employeeDetails.get('CompanyName').touched">Please enter Company Name !!!</span>  
+                      </mat-error>  
+                  </td>  
+              </tr>  
+              <tr>  
+                  <td colspan="2">  
+                      <mat-form-field class="demo-full-width">  
+                          <textarea formControlName="CompanyAddress" matInput placeholder="CompanyAddress" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>  
+                      </mat-form-field>  
+                      <mat-error>  
+                          <span *ngIf="!employeeDetails.get('CompanyAddress').valid && employeeDetails.get('CompanyAddress').touched">Please enter Company Address !!!</span>  
+                      </mat-error>  
+                  </td>  
+              </tr> 
+              <tr>  
+                <td>  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="IndustryType" matInput placeholder="IndustryType">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!employeeDetails.get('IndustryType').valid && employeeDetails.get('IndustryType').touched">Please enter Industry Type !!!</span>  
+                    </mat-error>  
+                </td>  
+                <td>  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="Designation" matInput placeholder="Designation">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!employeeDetails.get('Designation').valid && employeeDetails.get('Designation').touched">Please enter Designation !!!</span>  
+                    </mat-error>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td colspan="2">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="EmploymentType" matInput placeholder="EmploymentType">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!employeeDetails.get('EmploymentType').valid && employeeDetails.get('EmploymentType').touched">Please enter EmploymentType !!!</span>  
+                    </mat-error>  
+                </td>  
+            </tr>  
+              <tr>  
+                  <td colspan="2">  
+                      <mat-form-field class="demo-full-width">  
+                          <input formControlName="WorkFrom" matInput [matDatepicker]="startDate" placeholder="WorkFrom">  
+                          <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>  
+                          <mat-datepicker touchUi="true" #startDate></mat-datepicker>  
+                      </mat-form-field>  
+                      <mat-error>  
+                          <span *ngIf="!employeeDetails.get('WorkFrom').valid && employeeDetails.get('WorkFrom').touched">Work From</span>  
+                      </mat-error>  
+                  </td>  
+                 
+
+              </tr>  
+            
+              <tr>  
+                <td colspan="2">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="WorkTill" matInput [matDatepicker]="endDate" placeholder="WorkTill">  
+                        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>  
+                        <mat-datepicker touchUi="true" #endDate></mat-datepicker>  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!employeeDetails.get('WorkTill').valid && employeeDetails.get('WorkTill').touched">Work Till</span>  
+                    </mat-error>  
+                </td>  
+               
+
+            </tr>  
+             
+              <tr>  
+                <td colspan="2">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="Salary" matInput placeholder="Salary">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!employeeDetails.get('Salary').valid && employeeDetails.get('Salary').touched">Please enter Salary !!!</span>  
+                    </mat-error>  
+                </td>  
+            </tr> 
+
+          
+
+            <tr>  
+                <td >  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="SupervisiorName" matInput placeholder="SupervisiorName">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!employeeDetails.get('SupervisiorName').valid && employeeDetails.get('SupervisiorName').touched">Please enter SupervisiorName !!!</span>  
+                    </mat-error>  
+                </td>  
+                <td >  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="SupervisiorContactNumber" matInput placeholder="SupervisiorContactNumber">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!employeeDetails.get('SupervisiorContactNumber').valid && employeeDetails.get('SupervisiorContactNumber').touched">Please enter SupervisiorContactNumber !!!</span>  
+                    </mat-error>  
+                </td>  
+            </tr> 
+            <tr>  
+                <td colspan="2">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="SupervisiorEmail" matInput placeholder="SupervisiorEmail">  
+                        <mat-hint>use like : demo@demo.com</mat-hint>  
+                        <mat-error>  
+                            <span *ngIf="!employeeDetails.get('SupervisiorEmail').valid && employeeDetails.get('SupervisiorEmail').touched">Enter proper SupervisiorEmail !!!</span>  
+                        </mat-error>  
+                    </mat-form-field>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td colspan="2">  
+                    <mat-form-field class="demo-full-width">  
+                        <textarea formControlName="ReasonForLeaving" matInput placeholder="ReasonForLeaving" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!employeeDetails.get('ReasonForLeaving').valid && employeeDetails.get('ReasonForLeaving').touched">Please enter ReasonForLeaving !!!</span>  
+                    </mat-error>  
+                </td>  
+            </tr>  
+            
+            <tr>
+                <td>   
+                    <span>Eligible For Rehire</span><br><br>
+
+                    <mat-radio-group formControlName="EligibleForRehire">  
+                        <mat-radio-button value="Yes"> Yes </mat-radio-button>  
+                        <mat-radio-button value="No"> No </mat-radio-button>  
+                    </mat-radio-group>  
+                    <mat-error>  
+                        <span *ngIf="!employeeDetails.get('EligibleForRehire').valid && employeeDetails.get('EligibleForRehire').touched">Please select EligibleForRehire !!!</span>  
+                    </mat-error>  
+                </td>  
+            </tr>
+            <tr>  
+                <td colspan="2">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="AgencyName" matInput placeholder="AgencyName">  
+                        <mat-error>  
+                            <span *ngIf="!employeeDetails.get('AgencyName').valid && employeeDetails.get('AgencyName').touched">Enter AgencyName !!!</span>  
+                        </mat-error>  
+                    </mat-form-field>  
+                </td>  
+            </tr>  
+            <br>
+            
+              <tr>  
+                  <td colspan="2"  class="content-center">  
+                      <button mat-raised-button color="accent" [disabled]="!employeeDetails.valid" (click)="onSubmit(employeeDetails.value)"> Submit</button>  
+                  </td>  
+              </tr>  
+              <tr>  
+                  <td></td>  
+              </tr>  
+          </table>  
+      </form>  
+  </mat-card-content>  
+</mat-card>  
