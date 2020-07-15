@@ -1,17 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, NgForm, FormGroup, FormControl } from '@angular/forms';
+import {EmpFamilyServiceService} from './emp-family-service.service';
+
 
 @Component({
   selector: 'app-employee-family',
   templateUrl: './employee-family.component.html',
-  styleUrls: ['./employee-family.component.scss']
+  styleUrls: ['./employee-family.component.scss'],
+
 })
 export class EmployeeFamilyComponent implements OnInit {
+  service: any;
+ 
 
-  constructor() { 
-  }
+  constructor( private empfamilyserviceservice:EmpFamilyServiceService) { }
  
   ngOnInit(): void {
+   
   }
   regiForm = new FormGroup({  
     'FirstName' : new FormControl(null, Validators.required),  
@@ -24,11 +29,23 @@ export class EmployeeFamilyComponent implements OnInit {
 
 } ) 
 
+
+  message:any
+// Executed When Form Is Submitted  
 onFormSubmit(form:NgForm)  
 {  
   console.log(form);  
+
+  this.service.empfamilyserviceservice(form).subscribe(
+    data => this.message=data,
+    error => this.message=error
+  )
+
+  console.log(this.message)
+}  
+
 } 
-}
+
 
 
 
