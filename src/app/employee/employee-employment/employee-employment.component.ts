@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { Validators, FormGroup, FormControl, NgForm } from '@angular/forms';
 import { EmpEmploymentServiceService } from './emp-employment-service.service';
 
 
@@ -8,10 +8,12 @@ import { EmpEmploymentServiceService } from './emp-employment-service.service';
   templateUrl: './employee-employment.component.html',
   styleUrls: ['./employee-employment.component.scss']
 })
-export class EmployeeEmploymentComponent implements OnInit {
+export class EmployeeEmploymentComponent implements OnInit{
 
-  
+  constructor() { }
 
+  ngOnInit(): void {
+  }
   
    // To initialize FormGroup  
     regiForm = new FormGroup({  
@@ -34,11 +36,4 @@ export class EmployeeEmploymentComponent implements OnInit {
   }  
   
   }
-
-  ngOnInit() {
-    
-  }
-  
-
-} 
  
