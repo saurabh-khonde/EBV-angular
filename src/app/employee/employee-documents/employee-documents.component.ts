@@ -10,6 +10,13 @@ export class EmployeeDocumentsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+
+  }
+ 
+
+
+
   }
 
-}
+

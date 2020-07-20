@@ -54,8 +54,8 @@ import { HomeComponent } from './home/home/home.component';
     BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [EmployeeEmploymentComponent]
   
 })
 export class AppModule { }
-
+  
