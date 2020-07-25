@@ -2,7 +2,7 @@
 <hr>
 
 <!-- Main Toolbar of an App -->    
-<mat-toolbar color="accent">  
+<mat-toolbar color="primary">  
   <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>&nbsp;
   <span><i><u>Employee Back-Ground Verification</u></i></span>  
   <span class="demo-toolbar"></span>  
@@ -11,13 +11,14 @@
     <button mat-button [matMenuTriggerFor]="menu1">Login</button>
         <mat-menu #menu1="matMenu">
             <button mat-menu-item>Admin</button>
-            <button mat-menu-item>Employee</button>
+            <button mat-menu-item (click)='empLogin()'>Employee</button>
             <button mat-menu-item>Organization</button>
         </mat-menu>
 
-    <button mat-button [matMenuTriggerFor]="menu2">Sign Up</button>
+  <span class="material-icons"></span>
+    <button mat-button [matMenuTriggerFor]="menu2">SignUp</button>
         <mat-menu #menu2="matMenu">
-            <button mat-menu-item>Employee</button>
+            <button mat-menu-item (click)='empSignUp()'>Employee</button>
             <button mat-menu-item>Organization</button>
         </mat-menu>   
 

@@ -24,6 +24,10 @@ import { EmployeeHomePageComponent } from './employee/employee-home-page/employe
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { HomeComponent } from './home/home/home.component';
+import { SignUpModule } from './home/signUp/sign-up/sign-Up.module';
+import { EmployeeHomePageModule } from './employee/employee-home-page/employee-home-page.module';
+import { EmployeeWelcomeComponent } from './employee/employee-welcome/employee-welcome.component';
+import { emploginModule } from './home/login/login/login.module';
 
 
 @NgModule({
@@ -38,8 +42,9 @@ import { HomeComponent } from './home/home/home.component';
     EmployeeFamilyComponent,
     EmployeeEducationComponent,
     EmployeeReferenceComponent,
-    EmployeeEmploymentComponent,
+    EmployeeEmploymentComponent, 
     EmployeeDocumentsComponent,
+    EmployeeWelcomeComponent,
     Pipe1Pipe,
     Pipe2Pipe,
     EmployeeHomePageComponent,
@@ -47,14 +52,17 @@ import { HomeComponent } from './home/home/home.component';
     ErrorPageComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    SignUpModule,
+    EmployeeHomePageModule,
+    emploginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

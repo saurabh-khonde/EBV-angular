@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-home-page',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeHomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -29,4 +30,9 @@ export class EmployeeHomePageComponent implements OnInit {
     }
   }
   
+  public logout()
+  {
+    window.confirm("Want to Log-Out ?");
+    this.route.navigate(['/home']);
+  }
 }
