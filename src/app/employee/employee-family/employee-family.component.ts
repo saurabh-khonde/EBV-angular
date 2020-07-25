@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, NgForm, FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-family',
@@ -8,7 +9,7 @@ import { FormBuilder, Validators, NgForm, FormGroup, FormControl } from '@angula
 })
 export class EmployeeFamilyComponent implements OnInit {
 
-  constructor() { 
+  constructor(private route:Router) { 
   }
  
   ngOnInit(): void {
@@ -27,6 +28,7 @@ export class EmployeeFamilyComponent implements OnInit {
 onFormSubmit(form:NgForm)  
 {  
   console.log(form);  
+  this.route.navigate(['/empHomePage/empEmp']); 
 } 
 }
 

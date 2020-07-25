@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, NgForm, FormGroup, FormControl } from '@angular/forms';
 import { EmpEducationServiceService } from './emp-education-service.service';
+import { Router } from '@angular/router';
 
 
 
@@ -10,12 +11,11 @@ import { EmpEducationServiceService } from './emp-education-service.service';
   styleUrls: ['./employee-education.component.scss']
 })
 export class EmployeeEducationComponent implements OnInit {
+
+  constructor(private service:EmpEducationServiceService,private route:Router) { }
+
   ngOnInit(): void {
   }
-
-  constructor(private service:EmpEducationServiceService) { }
-  title = 'EmpVerify';
-   
   
   empEducationForm = new FormGroup({  
     'university' : new FormControl(null, Validators.required),  
@@ -26,8 +26,8 @@ export class EmployeeEducationComponent implements OnInit {
     'Qualification':new FormControl(null, Validators.required), 
     'IsYearGap':new FormControl(null, Validators.required),
     'Percentage' : new FormControl(null, Validators.required), 
-    'NoOfYearGap' : new FormControl(null, Validators.required),
-    'IsAccepted':new FormControl(null)  
+    'NoOfYearGap' : new FormControl('No', Validators.required),
+    'IsAccepted':new FormControl(0)  
 } ) 
 
 message:any
@@ -36,11 +36,12 @@ onFormSubmit(form:NgForm)
 {  
   console.log(form);  
 
-  this.service.EmpEducationService(form).subscribe(
-    data => this.message=data,
-    error => this.message=error
-  )
+  // this.service.EmpEducationService(form).subscribe(
+  //   data => this.message=data,
+  //   error => this.message=error
+  // )
 
   console.log(this.message)
+  this.route.navigate(['/empHomePage/empFamily']); 
 }  
 }

@@ -1,31 +1,37 @@
- 
+<br>
+<mat-toolbar color="primary">  
+    <span>Employee Background Verification :</span>  
+    <span class="demo-toolbar"></span>  
+    <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in"><span class="material-icons">star</span></button>  
+</mat-toolbar>  
+
 <mat-card>  
     <mat-card-title>  
-        Educational Details
-    </mat-card-title>  
+        <u>Educational Details</u>
+    </mat-card-title>  <br>
   
     <!-- Actual content starts from here -->  
     <mat-card-content>  
         <form [formGroup]="empEducationForm" (ngSubmit)="onFormSubmit(empEducationForm.value)">  
             <table>  
               <tr>
-                  <td colspan="2"> 
-                      <mat-form-field>  
+                <td colspan="1">  
+                    <mat-form-field class="demo-full-width"> 
                           <mat-select formControlName="Qualification" placeholder="Select Qualification">  
                               <mat-option>-- Select Any --</mat-option>  
-                              <mat-option value="C#Corner">BE</mat-option>  
-                              <mat-option value="C#Corner">B-Tech</mat-option>  
-                              <mat-option value="C#Corner">M-Tech</mat-option>  
+                              <mat-option value="BE">BE</mat-option>  
+                              <mat-option value="BTech">B-Tech</mat-option>  
+                              <mat-option value="MTech">M-Tech</mat-option>  
                           </mat-select>  
                           <mat-error>  
                               <span *ngIf="!empEducationForm.get('Qualification').valid && empEducationForm.get('Qualification').touched">Please select Qualification !!!</span>  
                           </mat-error>  
-                      </mat-form-field>  
-                  </td>  
+                    </mat-form-field>  
+                </td>  
               </tr>
                 
                 <tr>  
-                    <td colspan="2">  
+                    <td >  
                         <mat-form-field class="demo-full-width">  
                             <input formControlName="university" matInput placeholder="university Name">  
                         </mat-form-field>  
@@ -35,8 +41,8 @@
                     </td> 
                 </tr>    
                 <tr>
-                    <td colspan="2">  
-                        <mat-form-field class="demo-full-width">  
+                    <td colspan="2" >  
+                        <mat-form-field class="demo-full-width" >  
                             <input formControlName="CollegeName" matInput placeholder="College Name">  
                         </mat-form-field>  
                         <mat-error>  
@@ -53,19 +59,7 @@
                           <span *ngIf="!empEducationForm.get('Stream').valid && empEducationForm.get('Stream').touched">Please enter Stream Name !!!</span>  
                       </mat-error>  
                   </td>  
-                </tr>              
-                <tr>  
-                    <td colspan="2">  
-                        <mat-form-field class="demo-full-width">  
-                            <input formControlName="YearOfPassing" matInput [matDatepicker]="picker" placeholder="Year Of Passing">  
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
-                            <mat-datepicker touchUi="true" #picker></mat-datepicker>  
-                        </mat-form-field>  
-                        <mat-error>  
-                            <span *ngIf="!empEducationForm.get('YearOfPassing').valid && empEducationForm.get('YearOfPassing').touched">Please select Year Of Passing !!!</span>  
-                        </mat-error>  
-                    </td>  
-                </tr>  
+                </tr>  <br>
                 <tr>  
                     <td colspan="2">  
                         <span>Type</span> &nbsp;
@@ -77,17 +71,28 @@
                             <span *ngIf="!empEducationForm.get('Type').valid && empEducationForm.get('Type').touched">Please select any Type !!!</span>  
                         </mat-error>  
                     </td> 
-                </tr>
+                </tr>             
                 <tr>  
-                  <td colspan="2">  
-                      <mat-form-field class="demo-full-width">  
-                          <input formControlName="Percentage" matInput placeholder="Percentage">  
-                      </mat-form-field>  
-                      <mat-error>  
-                          <span *ngIf="!empEducationForm.get('Percentage').valid && empEducationForm.get('Percentage').touched">Please enter Percentage..!!!</span>  
-                      </mat-error>  
-                  </td> 
-              </tr>     
+                    <td colspan="1">  
+                        <mat-form-field class="demo-full-width">  
+                            <input formControlName="YearOfPassing" matInput [matDatepicker]="picker" placeholder="Year Of Passing">  
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
+                            <mat-datepicker touchUi="true" #picker></mat-datepicker>  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!empEducationForm.get('YearOfPassing').valid && empEducationForm.get('YearOfPassing').touched">Please select Year Of Passing !!!</span>  
+                        </mat-error>  
+                    </td>   &nbsp;
+                    <td colspan="1">  
+                        <mat-form-field class="demo-full-width">  
+                            <input formControlName="Percentage" matInput placeholder="Percentage">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!empEducationForm.get('Percentage').valid && empEducationForm.get('Percentage').touched">Please enter Percentage..!!!</span>  
+                        </mat-error>  
+                    </td> 
+                </tr> 
+                   
                 <tr>  
                   <td colspan="2">  
                       <span>IsYearGap</span> &nbsp;
@@ -99,18 +104,17 @@
                           <span *ngIf="!empEducationForm.get('IsYearGap').valid && empEducationForm.get('IsYearGap').touched">Please select Option !!!</span>  
                       </mat-error>  
                   </td> 
-              </tr> 
-              <tr>
+              </tr> <br>
+              <tr *ngIf="empEducationForm.get('IsYearGap').value=='Yes'">
                   <td colspan="2">  
                       <mat-form-field class="demo-full-width" >  
                           <input formControlName="NoOfYearGap" type="number"  matInput placeholder="No Of Year Gap">  
                       </mat-form-field>  
                       <mat-error>  
-                          <span *ngIf="!empEducationForm.get('NoOfYearGap').valid && empEducationForm.get('NoOfYearGap').touched">Please enter No Of Year Gap !!!</span>  
+                          <span *ngIf="!empEducationForm.get('NoOfYearGap').valid && empEducationForm.get('NoOfYearGap').touched"><small>Enter No Of Year Gap !!!</small> </span>  
                       </mat-error>  
                   </td>  
-              </tr> 
-  
+              </tr> <br>
  
                 <tr>  
                     <td colspan="2" class="content-center">  

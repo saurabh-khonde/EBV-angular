@@ -1,106 +1,190 @@
-<h2 style="text-align: center;"><u>Demo Form !!!</u></h2>
-<hr>
-
-<!-- Main Toolbar of an App -->    
-<mat-toolbar color="accent">  
-  <span>Manav Pandya - C#Corner</span>  
-  <span class="demo-toolbar"></span>  
-  <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in">Go To My Blog</button>  
-
-</mat-toolbar>  
+<!-- <p>employee-reference works!</p> -->
+<br>
+<mat-toolbar color="primary">  
+    <span>Employee Background Verification :</span>  
+    <span class="demo-toolbar"></span>  
+    <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in"><span class="material-icons">star</span></button>  
+</mat-toolbar>    
 
 <!-- Card container that binds all togather -->  
 <mat-card>  
   <!-- Title of an Card -->  
   <mat-card-title>  
-      Angular Material Component With Angular 5  
-  </mat-card-title>  
+    <u>Employment Details :</u>
+  </mat-card-title>  <br>
 
   <!-- Actual content starts from here -->  
   <mat-card-content>  
       <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
           <table>  
               <tr>  
+
                   <td>  
                       <mat-form-field class="demo-full-width">  
-                          <input formControlName="FirstName" matInput placeholder="First Name">  
+                          <input formControlName="EmpCompanyID" matInput placeholder="EmpCompanyID">  
                       </mat-form-field>  
                       <mat-error>  
-                          <span *ngIf="!regiForm.get('FirstName').valid && regiForm.get('FirstName').touched">Please enter First Name !!!</span>  
+                          <span *ngIf="!regiForm.get('EmpCompanyID').valid && regiForm.get('EmpCompanyID').touched">Please enter EmpCompanyID !!!</span>  
                       </mat-error>  
                   </td>  
-                  <td>  
-                      <mat-form-field class="demo-full-width">  
-                          <input formControlName="LastName" matInput placeholder="Last Name">  
-                      </mat-form-field>  
-                      <mat-error>  
-                          <span *ngIf="!regiForm.get('LastName').valid && regiForm.get('LastName').touched">Please enter Last Name !!!</span>  
-                      </mat-error>  
-                  </td>  
+              </tr>  
+              <tr>  
+                <td colspan="2">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="CompanyName" matInput placeholder="CompanyName" > 
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('CompanyName').valid && regiForm.get('CompanyName').touched">Please enter proper CompanyName !!!</span>  
+                    </mat-error>  
+                </td>  
+              </tr>
+              <tr>  
+                <td colspan="2">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="CompanyAddress" matInput placeholder="CompanyAddress" > 
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('CompanyAddress').valid && regiForm.get('CompanyAddress').touched">Please enter proper CompanyAddress !!!</span>  
+                    </mat-error>  
+                </td>  
+              </tr>
+
+
+              <tr>  
+                <td>  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="IndustryType" matInput placeholder="IndustryType">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('IndustryType').valid && regiForm.get('IndustryType').touched">Please enter IndustryType !!!</span>  
+                    </mat-error>  
+                </td>  
+                <td>  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="Designation" matInput placeholder="Designation">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('Designation').valid && regiForm.get('Designation').touched">Please enter Designation !!!</span>  
+                    </mat-error>  
+                </td>  
+            </tr>  
+
+            <tr>  
+                <td colspan="2">
+                    <mat-form-field>  
+                        <mat-select formControlName="EmploymentType" placeholder="Employment Type">  
+                            <mat-option>-- Select any--</mat-option>  
+                            <mat-option value="Full Stack Developer">Full Stack Developer</mat-option>  
+                            <mat-option value="Softwere Engineer">Softwere Engineer</mat-option>  
+                            <mat-option value="IT Engineer">IT Engineer</mat-option>  
+                            <mat-option value="Developer">Developer</mat-option>  
+                        </mat-select>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('EmploymentType').valid && regiForm.get('EmploymentType').touched">Please select any item !!!</span>  
+                        </mat-error>  
+                    </mat-form-field>  
+                </td> 
+              </tr>  
+
+
+              <tr>  
+                <td>  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="WorkFrom" matInput [matDatepicker]="picker" placeholder="WorkFrom">  
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker touchui="true" #picker></mat-datepicker>
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('WorkFrom').valid && regiForm.get('WorkFrom').touched">Please enter WorkFrom !!!</span>  
+                    </mat-error>  
+                </td>  
+                <td>  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="WorkTill" matInput [matDatepicker]="picker" placeholder="WorkTill"> 
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker touchui="true" #picker></mat-datepicker> 
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('WorkTill').valid && regiForm.get('WorkTill').touched">Please enter WorkTill !!!</span>  
+                    </mat-error>  
+                </td>  
+                <td>  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="Salary" matInput placeholder="Salary">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('Salary').valid && regiForm.get('Salary').touched">Please enter Salary !!!</span>  
+                    </mat-error>  
+                </td>  
+            </tr>  
+
+
+
+              <tr>  
+                <td colspan="2"> 
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="SupervisiorName" matInput placeholder="SupervisiorName">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('SupervisiorName').valid && regiForm.get('SupervisiorName').touched">Please enter SupervisiorName !!!</span>  
+                    </mat-error>  
+                </td> 
+                <td colspan="2"> 
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="SupervisiorContactNumber" matInput placeholder="SupervisiorContactNumber">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('SupervisiorContactNumber').valid && regiForm.get('SupervisiorContactNumber').touched">Please enter 10 Mobile Number !!!</span>  
+                    </mat-error>  
+                </td> 
+
               </tr>  
               <tr>  
                   <td colspan="2">  
                       <mat-form-field class="demo-full-width">  
-                          <textarea formControlName="Address" matInput placeholder="Address" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>  
-                      </mat-form-field>  
-                      <mat-error>  
-                          <span *ngIf="!regiForm.get('Address').valid && regiForm.get('Address').touched">Please enter proper address !!!</span>  
-                      </mat-error>  
-                  </td>  
-              </tr>  
-              <tr>  
-                  <td colspan="2">  
-                      <mat-form-field class="demo-full-width">  
-                          <input formControlName="DOB" matInput [matDatepicker]="picker" placeholder="Date of birth">  
-                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
-                          <mat-datepicker touchUi="true" #picker></mat-datepicker>  
-                      </mat-form-field>  
-                      <mat-error>  
-                          <span *ngIf="!regiForm.get('DOB').valid && regiForm.get('DOB').touched">Please select any Date !!!</span>  
-                      </mat-error>  
-                  </td>  
-              </tr>  
-              <tr>  
-                  <td>  
-                      <span>Gender</span><br><br>  
-                      <mat-radio-group formControlName="Gender">  
-                          <mat-radio-button value="Male">Male</mat-radio-button>  
-                          <mat-radio-button value="Female">Female</mat-radio-button>  
-                      </mat-radio-group>  
-                      <mat-error>  
-                          <span *ngIf="!regiForm.get('Gender').valid && regiForm.get('Gender').touched">Please select any gender !!!</span>  
-                      </mat-error>  
-                  </td>  
-                  <td><br>  
-                      <mat-form-field>  
-                          <mat-select formControlName="Blog" placeholder="Select Blog">  
-                              <mat-option>-- Select Any --</mat-option>  
-                              <mat-option value="C#Corner">C#Corner</mat-option>  
-                              <mat-option value="C#Corner">C#Corner</mat-option>  
-                              <mat-option value="C#Corner">C#Corner</mat-option>  
-                          </mat-select>  
+                          <input formControlName="SupervisiorEmail" matInput placeholder="SupervisiorEmail">  
+                          <mat-hint>use like : abc@gmail.com</mat-hint>  
                           <mat-error>  
-                              <span *ngIf="!regiForm.get('Blog').valid && regiForm.get('Blog').touched">Please select any item !!!</span>  
+                              <span *ngIf="!regiForm.get('SupervisiorEmail').valid && regiForm.get('SupervisiorEmail').touched">Enter proper Email !!!</span>  
                           </mat-error>  
                       </mat-form-field>  
                   </td>  
-              </tr>  
+              </tr> 
+
+
               <tr>  
-                  <td colspan="2">  
-                      <mat-form-field class="demo-full-width">  
-                          <input formControlName="Email" matInput placeholder="Email">  
-                          <mat-hint>use like : demo@demo.com</mat-hint>  
-                          <mat-error>  
-                              <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>  
-                          </mat-error>  
-                      </mat-form-field>  
-                  </td>  
-              </tr>  
+                <td colspan="2">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="ReasonForLeaving" matInput placeholder="ReasonForLeaving">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('ReasonForLeaving').valid && regiForm.get('ReasonForLeaving').touched">Please enter ReasonForLeaving !!!</span>  
+                    </mat-error>  
+
+                </td>  
+              </tr>
+
               <tr>  
-                  <!-- <td colspan="2">  
-                      <mat-slide-toggle formControlName="IsAccepted" (change)="onChange($event)">Accept Terms & Conditions</mat-slide-toggle>  
-                  </td>   -->
+                <td colspan="2"> 
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="EligibleForRehire" matInput placeholder="EligibleForRehire">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('EligibleForRehire').valid && regiForm.get('EligibleForRehire').touched">Please enter EligibleForRehire !!!</span>  
+                    </mat-error>  
+                </td> 
+                <td colspan="2"> 
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="AgencyName" matInput placeholder="AgencyName">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('AgencyName').valid && regiForm.get('AgencyName').touched">Please enter AgencyName !!!</span>  
+                    </mat-error>  
+                </td> 
+
               </tr>  
+
+
               <tr>  
                   <td colspan="2" class="content-center">  
                       <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Submit</button>  

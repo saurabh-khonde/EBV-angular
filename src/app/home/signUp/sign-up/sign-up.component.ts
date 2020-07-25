@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { SignUpServiceService } from '../sign-up-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,7 +10,7 @@ import { SignUpServiceService } from '../sign-up-service.service';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor(private service:SignUpServiceService) { }
+  constructor(private service:SignUpServiceService,private route:Router) { }
  
   ngOnInit(): void {
   }
@@ -35,12 +36,14 @@ onFormSubmit(form:NgForm)
 {  
   console.log(form);  
 
-  this.service.signUpEmployeeService(form).subscribe(
-    data => this.message=data,
-    error => this.message=error
-  )
+  // this.service.signUpEmployeeService(form).subscribe(
+  //   data => this.message=data,
+  //   error => this.message=error
+  // )
 
-  console.log(this.message)
+  console.log(this.message) 
+
+  this.route.navigate(['/login']); 
 }  
 
 }

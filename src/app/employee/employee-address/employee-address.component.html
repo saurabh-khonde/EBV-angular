@@ -1,0 +1,121 @@
+<br>
+<mat-toolbar color="primary">  
+    <span>Employee Background Verification :</span>  
+    <span class="demo-toolbar"></span>  
+    <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in"><span class="material-icons">star</span></button>  
+</mat-toolbar>  
+<mat-card>  
+    <mat-card-title>  
+        <div *ngIf="show;then content else other_content"></div> 
+        <ng-template #content><u>Current Address :</u></ng-template>
+        <ng-template #other_content><u>Permanant Address :</u></ng-template>
+    </mat-card-title> 
+  <mat-card-content>  <br>
+
+      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
+        <table>  
+            <tr>  
+                <td colspan="1">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="Line1" matInput placeholder="Line 1">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('Line1').valid && regiForm.get('Line1').touched">Please enter Line 1 !!!</span>  
+                    </mat-error>  
+                </td>  
+            </tr>
+            <tr>
+                <td colspan="1">  
+                    <mat-form-field class="demo-full-width">  
+                        <input formControlName="Line2" matInput placeholder="Line 2">  
+                    </mat-form-field>  
+                    <mat-error>  
+                        <span *ngIf="!regiForm.get('Line2').valid && regiForm.get('Line2').touched">Please enter Line 2 !!!</span>  
+                    </mat-error>  
+                </td>  
+            </tr>  
+            <tr>  
+              <td colspan="1">  
+                  <mat-form-field class="demo-full-width">  
+                      <input formControlName="Area" matInput placeholder="Area" > 
+                  </mat-form-field>  
+                  <mat-error>  
+                      <span *ngIf="!regiForm.get('Area').valid && regiForm.get('Area').touched">Please enter proper Area !!!</span>  
+                  </mat-error>  
+              </td>  
+            </tr> <br>
+            <tr>  
+              <td>
+                  <mat-form-field>  
+                      <mat-select formControlName="City" placeholder="City">  
+                          <mat-option>-- City --</mat-option>  
+                          <mat-option value="City-1">City-1</mat-option>  
+                          <mat-option value="City-2">City-2</mat-option>  
+                          <mat-option value="City-3">City-3</mat-option>  
+                          <mat-option value="City-4">City-4</mat-option>  
+                      </mat-select>  
+                      <mat-error>  
+                          <span *ngIf="!regiForm.get('City').valid && regiForm.get('City').touched">Please select City !!!</span>  
+                      </mat-error>  
+                  </mat-form-field>  
+                  &nbsp; &nbsp; 
+                <mat-form-field >  
+                    <input formControlName="pincode" matInput placeholder="pincode" > 
+                </mat-form-field>  
+                <mat-error>  
+                    <span *ngIf="!regiForm.get('pincode').valid && regiForm.get('pincode').touched">Please enter pincode !!!</span>  
+                </mat-error>  
+              </td>  
+            </tr>  
+            <tr>  
+                <td>
+                  <mat-form-field>  
+                      <mat-select formControlName="State" placeholder="State">  
+                          <mat-option>-- State --</mat-option>  
+                          <mat-option value="State-1">State-1</mat-option>  
+                          <mat-option value="State-2">State-2</mat-option>  
+                          <mat-option value="State-3">State-3</mat-option>  
+                          <mat-option value="State-4">State-4</mat-option>  
+                      </mat-select>  
+                      <mat-error>  
+                          <span *ngIf="!regiForm.get('State').valid && regiForm.get('State').touched">Please select State !!!</span>  
+                      </mat-error>  
+                  </mat-form-field>  
+                    &nbsp; &nbsp; 
+                    <mat-form-field>  
+                        <mat-select formControlName="Country" placeholder="Country">  
+                            <mat-option>-- State --</mat-option>  
+                            <mat-option value="Country-1">Country-1</mat-option>  
+                            <mat-option value="Country-2">Country-2</mat-option>  
+                            <mat-option value="Country-3">Country-3</mat-option>  
+                            <mat-option value="Country-4">Country-4</mat-option>  
+                        </mat-select>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('Country').valid && regiForm.get('Country').touched">Please select Country !!!</span>  
+                        </mat-error>  
+                    </mat-form-field>  
+                </td> 
+            </tr>
+            <br>
+        <tr [hidden]='disableRadio'>
+            <td colspan="1">
+                <span>* <i>Is Current and Permanant Address Same ?</i></span>&nbsp; &nbsp;
+                <mat-radio-group formControlName="IsCPsame">
+                    <mat-radio-button value="true">Yes</mat-radio-button>&nbsp;   
+                    <mat-radio-button value="false">No</mat-radio-button>  
+                </mat-radio-group> 
+            </td>
+        </tr>
+        <br>
+            <tr>   
+              <td colspan="1" class="content-center">  
+                  <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Submit</button>  
+              </td>  
+            </tr>  
+            <tr>  
+                <td></td>  
+            </tr>  
+        </table>  
+    </form>  
+</mat-card-content>   
+</mat-card>  

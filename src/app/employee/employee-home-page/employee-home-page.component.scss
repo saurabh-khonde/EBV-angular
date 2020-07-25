@@ -31,3 +31,8 @@
   .submenu.expanded {
     transform: scaleY(1);
   }
+
+  #child1 {
+    position: absolute;
+    right: 15px;
+  }

@@ -1,26 +1,55 @@
-<p>employee-reference works!</p>
-
-<h2 style="text-align: center;"><u>References</u></h2>
-<hr>
-
+<br>
 <!-- Main Toolbar of an App -->    
-<mat-toolbar color="accent">  
-  <span>Employee References</span>  
+<mat-toolbar color="primary">  
+  <span>Employee Background Verification :</span>  
   <span class="demo-toolbar"></span>  
-  <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in">Go To My Blog</button>  
+  <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in"><span class="material-icons">
+    star
+    </span></button>  
 
 </mat-toolbar>  
-
+ 
 <!-- Card container that binds all togather -->  
-<mat-card>  
+<mat-card>   
   <!-- Title of an Card -->  
   <mat-card-title>  
-      Employee References
-  </mat-card-title>  <br>
+      <u>Employee References</u><br>
+  </mat-card-title> 
+
+
+  <div *ngIf="regFormArray?.length>0" >
+    <mat-card>
+        <table class="table table-hover table-sm table-bordered">
+            <thead class="thead-light">
+            <tr class="nm">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Designation</th>
+                    <th>Relation</th>
+                    <th>Mobile No</th>
+                    <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let x of regFormArray">
+                    <td>{{x.FirstName}}</td>
+                    <td>{{x.LastName}}</td>
+                    <td>{{x.Designation}}</td>
+                    <td>{{x.Relation}}</td>
+                    <td>{{x.Mobile}}</td>
+                    <td>{{x.Email}}</td>
+                    <button class="test" (click)="deleteRef(x)"><span class="material-icons">delete_forever</span></button> 
+                </tr>
+            </tbody>
+        </table>
+    </mat-card>
+  </div>
+
 
   <!-- Actual content starts from here -->  
   <mat-card-content>  
-      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
+      <!-- <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">   -->
+        <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
           <table>  
               <tr>  
                   <td>  
@@ -56,7 +85,7 @@
                         <mat-select formControlName="Relation" placeholder="Relation type">  
                             <mat-option>-- Relations --</mat-option>  
                             <mat-option value="Collegue">Collegue</mat-option>  
-                            <mat-option value="Collegue">Friend</mat-option>  
+                            <mat-option value="Friend">Friend</mat-option>  
                             <mat-option value="Senior">Senior</mat-option>  
                             <mat-option value="Junior">Junior</mat-option>  
                         </mat-select>  
@@ -85,13 +114,16 @@
                           <mat-error>  
                               <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>  
                           </mat-error>  
-                      </mat-form-field>  
+                      </mat-form-field>   
                   </td>  
-              </tr> 
+              </tr> <br>
               <tr>  
-                  <td colspan="2" class="content-center">  
-                      <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Submit</button>  
-                  </td>  
+                <td colspan="1" class="content-center">  
+                    <button mat-raised-button color="accent" (click)="addMoreRef(regiForm.value)"[disabled]="!regiForm.valid"><mat-icon> add_comment</mat-icon>Add</button>  
+                </td> 
+                <td colspan="1" class="content-center">  
+                    <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Submit</button>  
+                </td>  
               </tr>  
               <tr>  
                   <td></td>  
