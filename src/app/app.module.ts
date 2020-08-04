@@ -28,7 +28,8 @@ import { SignUpModule } from './home/signUp/sign-up/sign-Up.module';
 import { EmployeeHomePageModule } from './employee/employee-home-page/employee-home-page.module';
 import { EmployeeWelcomeComponent } from './employee/employee-welcome/employee-welcome.component';
 import { emploginModule } from './home/login/login/login.module';
-
+import { ForgotpasswordComponent } from './home/login/forgot-password/forgot-password.component';
+import {ForgotPasswordModule} from './home/login/forgot-password/forgot-password.module'
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { emploginModule } from './home/login/login/login.module';
     Pipe2Pipe,
     EmployeeHomePageComponent,
     HomeComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule, 
@@ -62,7 +64,8 @@ import { emploginModule } from './home/login/login/login.module';
     HttpClientModule,
     SignUpModule,
     EmployeeHomePageModule,
-    emploginModule
+    emploginModule,
+    ForgotPasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,7 +8,9 @@ const routes: Routes = [
   {path:'', redirectTo:'home',pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'signup', loadChildren:'./home/signUp/sign-up/sign-Up.module#SignUpModule'},
-  {path:'login', loadChildren:'./home/login/login/login.module#emploginModule'}, 
+  {path:'login', loadChildren:'./home/login/login/login.module#emploginModule'},
+  //{path:'forgotpassword', loadChildren:'./home/login/forgot-password/forgot-password.module#ForgotPaswordModule'}, 
+  {path:'forgotpassword', loadChildren: () => import ('src/app/home/login/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)},
   {path:'empHomePage', loadChildren:'./employee/employee-home-page/employee-home-page.module#EmployeeHomePageModule'},
   {path:'**',component:ErrorPageComponent}
 ];
