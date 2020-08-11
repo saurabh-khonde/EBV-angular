@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html', 
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.scss'],
+  providers :[SignUpServiceService]
 })
 export class SignUpComponent implements OnInit {
 
@@ -20,14 +21,16 @@ export class SignUpComponent implements OnInit {
 
    // To initialize FormGroup    
    regiForm = new FormGroup({  
-    'FirstName' : new FormControl(null, Validators.required),  
-    'LastName' : new FormControl(null, Validators.required), 
-    'DOB' : new FormControl(null, Validators.required), 
-    'Gender':new FormControl(null, Validators.required),
-    'Mobile' : new FormControl(null, Validators.compose([Validators.required,Validators.pattern(/^[6-9]\d{9}$/), Validators.minLength(10), Validators.maxLength(10)])),  
-    'Email':new FormControl(null, Validators.compose([Validators.required,Validators.email])),  
-    'CreatePassword' : new FormControl(null, Validators.compose([Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')])),
-    'IsAccepted':new FormControl(null,Validators.required)  
+    'firstName' : new FormControl(null, Validators.required),  
+    'lastName' : new FormControl(null, Validators.required),  
+    'dateOfBirth' : new FormControl(null, Validators.required), 
+    'gender':new FormControl(null, Validators.required),
+    'mobileNo' : new FormControl(null, Validators.compose([Validators.required,Validators.pattern(/^[6-9]\d{9}$/), Validators.minLength(10), Validators.maxLength(10)])),  
+    userEntity : new FormGroup({
+    'emailId':new FormControl(null, Validators.compose([Validators.required,Validators.email])),  
+    'password' : new FormControl(null, Validators.compose([Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')])),
+    'IsAccepted':new FormControl(null,Validators.required)
+  })
 } ) 
 
 message:any
@@ -36,14 +39,13 @@ onFormSubmit(form:NgForm)
 {  
   console.log(form);  
 
-  // this.service.signUpEmployeeService(form).subscribe(
-  //   data => this.message=data,
-  //   error => this.message=error
-  // )
-
+  this.service.signUpEmployeeService(form).subscribe(
+    (data) => this.message=data
+    // error => this.message.error
+  )
   console.log(this.message) 
 
-  this.route.navigate(['/login']); 
+  // this.route.navigate(['/login']); 
 }  
 
 }
