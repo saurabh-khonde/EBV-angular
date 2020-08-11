@@ -1,4 +1,4 @@
-
+<br>
 <!-- Main Toolbar of an App -->    
 <mat-toolbar color="primary">  
     <span>Employee Background Verification :</span>  
@@ -26,18 +26,18 @@
                   <td>  
                       <mat-form-field class="demo-full-width">  
                           <input formControlName="FirstName" matInput placeholder="First Name">  
-                      </mat-form-field>  
                       <mat-error>  
                           <span *ngIf="!regiForm.get('FirstName').valid && regiForm.get('FirstName').touched">Please enter First Name !!!</span>  
-                      </mat-error>  
+                      </mat-error> 
+                    </mat-form-field> 
                   </td>  
                   <td>  
                       <mat-form-field class="demo-full-width">  
-                          <input formControlName="LastName" matInput placeholder="Last Name">  
-                      </mat-form-field>  
+                          <input formControlName="LastName" matInput placeholder="Last Name">   
                       <mat-error>  
                           <span *ngIf="!regiForm.get('LastName').valid && regiForm.get('LastName').touched">Please enter Last Name !!!</span>  
                       </mat-error>  
+                    </mat-form-field> 
                   </td>  
               </tr>  
               <tr>
@@ -45,11 +45,11 @@
                     <mat-form-field class="demo-full-width">  
                         <input formControlName="DateOfBirth" matInput [matDatepicker]="picker" placeholder="DateOfBirth">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker touchui="true" #picker></mat-datepicker>
-                    </mat-form-field>  
+                        <mat-datepicker touchui="true" #picker></mat-datepicker>  
                     <mat-error>  
                         <span *ngIf="!regiForm.get('DateOfBirth').valid && regiForm.get('DateOfBirth').touched"><small>Please select any date !!!</small>></span>  
-                    </mat-error>  
+                    </mat-error>
+                </mat-form-field>  
                   </td>
               </tr>
               <tr>
@@ -64,7 +64,7 @@
                             <mat-option value="Other">Other</mat-option>  
                         </mat-select>  
                         <mat-error>  
-                            <span *ngIf="!regiForm.get('Relation').valid && regiForm.get('Relation').touched">Please select any item !!!</span>  
+                            <span *ngIf="!regiForm.get('Occupation').valid && regiForm.get('Occupation').touched">Please select any item !!!</span>  
                         </mat-error>  
                     </mat-form-field>  
                 </td>  
@@ -84,12 +84,9 @@
                     </mat-error>  
                 </mat-form-field>  
             </td>  
-        </tr>  
-              
-              
-            
-                <tr>  
-                  <td colspan="2">  
+        </tr>        
+            <tr>  
+                 <td colspan="2">  
                       <mat-form-field class="demo-full-width">  
                           <input formControlName="Email" matInput placeholder="Email">  
                           <mat-hint>use like : demo@demo.com</mat-hint>  
@@ -97,8 +94,8 @@
                               <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>  
                           </mat-error>  
                       </mat-form-field>  
-                  </td>  
-              </tr>  
+                </td>  
+            </tr>  
 
               <tr>  
                 <td colspan="2">  
