@@ -7,13 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class SignUpServiceService {
 
-  url = "localhost:8090/api/registerEmp";
+  url = "http://localhost:8082/api/employee/postEmployeeDetails";
   
   constructor(private http: HttpClient) { }
 
-  public signUpEmployeeService(form):Observable<any>
+  // public signUpEmployeeService(form):Observable<any>
+  // {
+  //   return this.http.post<any>(this.url,form)
+  // }
+
+  public signUpEmployeeService(form)
   {
-    return this.http.post<any>(this.url,form)
+    return this.http.post<any>(this.url,form,{responseType:'text' as 'json'})
   }
 }
  

@@ -12,6 +12,8 @@
 
 </mat-toolbar>  
 
+<h2 style="text-align: center; color: blueviolet;">{{message}}</h2>
+
 <!-- Card container that binds all togather -->  
 <mat-card>  
   <!-- Title of an Card -->  
@@ -26,42 +28,42 @@
               <tr>  
                   <td>  
                       <mat-form-field class="demo-full-width">  
-                          <input formControlName="FirstName" matInput placeholder="First Name">  
+                          <input formControlName="firstName" matInput placeholder="First Name">  
                       </mat-form-field>  
                       <mat-error>  
-                          <span *ngIf="!regiForm.get('FirstName').valid && regiForm.get('FirstName').touched"><small>Please enter First Name !!!</small></span>  
+                          <span *ngIf="!regiForm.get('firstName').valid && regiForm.get('firstName').touched"><small>Please enter First Name !!!</small></span>  
                       </mat-error>  
                   </td>  
                   <td>  
                       <mat-form-field class="demo-full-width">  
-                          <input formControlName="LastName" matInput placeholder="Last Name">  
+                          <input formControlName="lastName" matInput placeholder="Last Name">  
                       </mat-form-field>  
                       <mat-error>  
-                          <span *ngIf="!regiForm.get('LastName').valid && regiForm.get('LastName').touched"><small>Please enter Last Name !!!</small></span>  
+                          <span *ngIf="!regiForm.get('lastName').valid && regiForm.get('lastName').touched"><small>Please enter Last Name !!!</small></span>  
                       </mat-error>  
                   </td>  
               </tr>  
               <tr>  
                   <td colspan="2">  
                       <mat-form-field class="demo-full-width">  
-                          <input formControlName="DOB" matInput [matDatepicker]="picker" placeholder="Date of birth">  
+                          <input formControlName="dateOfBirth" matInput [matDatepicker]="picker" placeholder="Date of birth">  
                           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
                           <mat-datepicker touchUi="true" #picker></mat-datepicker>  
                       </mat-form-field>  
                       <mat-error>  
-                          <span *ngIf="!regiForm.get('DOB').valid && regiForm.get('DOB').touched"><small>Please select any Date !!!</small></span>  
+                          <span *ngIf="!regiForm.get('dateOfBirth').valid && regiForm.get('dateOfBirth').touched"><small>Please select any Date !!!</small></span>  
                       </mat-error>  
                   </td>  
               </tr>  <br>
               <tr>  
                   <td colspan="2">  
                       <span>Gender</span>&nbsp; &nbsp; 
-                      <mat-radio-group formControlName="Gender">  
+                      <mat-radio-group formControlName="gender">  
                           <mat-radio-button value="Male">Male</mat-radio-button>&nbsp;   
                           <mat-radio-button value="Female">Female</mat-radio-button>  
                       </mat-radio-group>  
                       <mat-error>  
-                          <span *ngIf="!regiForm.get('Gender').valid && regiForm.get('Gender').touched">Please select any gender !!!</span>  
+                          <span *ngIf="!regiForm.get('gender').valid && regiForm.get('gender').touched">Please select any gender !!!</span>  
                       </mat-error>  
                   </td>  
               </tr><br>
@@ -69,22 +71,23 @@
               <tr>  
                 <td colspan="2">  
                     <mat-form-field class="demo-full-width">  
-                        <input formControlName="Mobile" matInput placeholder="Mobile Number">  
+                        <input type='number' formControlName="mobileNo" matInput placeholder="Mobile Number">  
                         <mat-hint>use like : 987-898-7656</mat-hint>  
                         <mat-error>  
-                            <span *ngIf="!regiForm.get('Mobile').valid && regiForm.get('Mobile').touched">Enter 10 digit Mobile number !!!</span>  
+                            <span *ngIf="!regiForm.get('mobileNo').valid && regiForm.get('mobileNo').touched">Enter 10 digit Mobile number !!!</span>  
                         </mat-error>  
                     </mat-form-field>  
                 </td>  
             </tr> <br>
 
-              <tr>  
+        <div formGroupName="userEntity">
+              <tr>   
                   <td colspan="2">  
                       <mat-form-field class="demo-full-width">  
-                          <input formControlName="Email" matInput placeholder="Email">  
+                          <input formControlName="emailId" matInput placeholder="Email">  
                           <mat-hint>use like : demo@demo.com</mat-hint>  
                           <mat-error>  
-                              <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>  
+                              <span *ngIf="!regiForm.get('userEntity.emailId').valid && regiForm.get('userEntity.emailId').touched">Enter proper Email !!!</span>  
                           </mat-error>  
                       </mat-form-field>  
                   </td>  
@@ -93,18 +96,18 @@
             <tr>  
                 <td>  
                     <mat-form-field class="demo-full-width">  
-                        <input type="password" formControlName="CreatePassword" matInput placeholder="Create Password" [(ngModel)]="password">  
+                        <input type="password" formControlName="password" matInput placeholder="Create Password" [(ngModel)]="password">  
                     </mat-form-field>  
                     <mat-error>  
-                        <span *ngIf="!regiForm.get('CreatePassword').valid && regiForm.get('CreatePassword').touched"><small>Min 8 alphanumeric char !</small></span>  
+                        <span *ngIf="!regiForm.get('userEntity.password').valid && regiForm.get('userEntity.password').touched"><small>Min 8 alphanumeric char !</small></span>  
                     </mat-error>  
                 </td>  
                 <td>  
                     <mat-form-field class="demo-full-width">  
-                        <input type="password" formControlName="CreatePassword" matInput placeholder="Confirm Password" [(ngModel)]="cpassword">  
+                        <input type="password" formControlName="password" matInput placeholder="Confirm Password" [(ngModel)]="cpassword">  
                     </mat-form-field>  
                     <mat-error>  
-                        <span *ngIf="!regiForm.get('CreatePassword').valid && regiForm.get('CreatePassword').touched; else elseBlock"><small>Min 8 alphanumeric char !</small></span>  
+                        <span *ngIf="!regiForm.get('userEntity.password').valid && regiForm.get('userEntity.password').touched; else elseBlock"><small>Min 8 alphanumeric char !</small></span>  
                     </mat-error>  
                 </td>  
             </tr>
@@ -117,13 +120,13 @@
                     </mat-error>
                 </td>
             </tr><br>
-
+        
               <tr>  
                   <td colspan="2">  
                       <mat-slide-toggle formControlName="IsAccepted" required>Accept Terms & Conditions</mat-slide-toggle>  
                   </td>  
               </tr><br>
-
+        </div>
               <tr>  
                 <td colspan="2" class="content-center">  
                     <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Submit</button>  
