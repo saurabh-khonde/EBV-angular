@@ -1,10 +1,10 @@
-<br>
+
 <mat-toolbar color="primary">  
     <span>Employee Background Verification :</span>  
     <span class="demo-toolbar"></span>  
     <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in"><span class="material-icons">star</span></button>  
 </mat-toolbar>  
-<mat-card>  
+<mat-card >  
     <mat-card-title>  
         <div *ngIf="show;then content else other_content"></div> 
         <ng-template #content><u>Current Address :</u></ng-template>
@@ -18,30 +18,30 @@
                 <td colspan="1">  
                     <mat-form-field class="demo-full-width">  
                         <input formControlName="Line1" matInput placeholder="Line 1">  
-                    </mat-form-field>  
                     <mat-error>  
                         <span *ngIf="!regiForm.get('Line1').valid && regiForm.get('Line1').touched">Please enter Line 1 !!!</span>  
                     </mat-error>  
+                </mat-form-field>
                 </td>  
             </tr>
             <tr>
                 <td colspan="1">  
                     <mat-form-field class="demo-full-width">  
-                        <input formControlName="Line2" matInput placeholder="Line 2">  
-                    </mat-form-field>  
+                        <input formControlName="Line2" matInput placeholder="Line 2">    
                     <mat-error>  
                         <span *ngIf="!regiForm.get('Line2').valid && regiForm.get('Line2').touched">Please enter Line 2 !!!</span>  
-                    </mat-error>  
+                    </mat-error> 
+                </mat-form-field> 
                 </td>  
             </tr>  
             <tr>  
               <td colspan="1">  
                   <mat-form-field class="demo-full-width">  
-                      <input formControlName="Area" matInput placeholder="Area" > 
-                  </mat-form-field>  
+                      <input formControlName="Area" matInput placeholder="Area" >  
                   <mat-error>  
                       <span *ngIf="!regiForm.get('Area').valid && regiForm.get('Area').touched">Please enter proper Area !!!</span>  
-                  </mat-error>  
+                  </mat-error>
+                </mat-form-field>
               </td>  
             </tr> <br>
             <tr>  
@@ -60,11 +60,11 @@
                   </mat-form-field>  
                   &nbsp; &nbsp; 
                 <mat-form-field >  
-                    <input formControlName="pincode" matInput placeholder="pincode" > 
-                </mat-form-field>  
+                    <input formControlName="pincode" matInput placeholder="pincode" maxlength="6" >   
                 <mat-error>  
                     <span *ngIf="!regiForm.get('pincode').valid && regiForm.get('pincode').touched">Please enter pincode !!!</span>  
-                </mat-error>  
+                </mat-error>
+                </mat-form-field>  
               </td>  
             </tr>  
             <tr>  
